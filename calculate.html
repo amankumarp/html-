@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator </title>
+	<script type="text/javascript">
+		function btnclk(n)
+		{
+			res.value=res.value+n;
+		}
+		function eql()
+		{
+			res.value=eval(res.value);
+		}
+		function clear()
+		{
+			res.value='';
+		}
+		function sqr()
+		{
+			res.value=Number(res.value)*Number(res.value);
+		}
+        function squareroot()
+        {
+        	res.value=Math.sqrt(Number(res.value));
+        }
+        function back()
+        {
+        	str1='';
+        	str=res.value;
+        	for (var i = 0; i <= str.length - 2; i++) {
+        		str1=str1+str[i];
+        	}
+        	res.value=str1;
+        }
+	</script>
+</head>
+<body><center>
+	<h2>Calculator</h2>
+	<table bgcolor="#B4B6B3">
+		
+	<input  type="text" name="res" id="res" width="50px"></br>
+	<td>
+	<button type="button" value="1" onclick="btnclk(1)" >1</button>
+</td>
+<td>
+	<button type="button" value="2" onclick="btnclk(2)" >2</button></td>
+	<td>
+	<button type="button" value="3" onclick="btnclk(3)" >3</button></td>
+	<td>
+	<button type="button" value="4" onclick="btnclk(4)" >4</button>
+	</td></tr><br><tr><td>
+	<button type="button" value="5" onclick="btnclk(5)" >5</button></td><td>
+	<button type="button" value="6" onclick="btnclk(6)" >6</button></td><td>
+	<button type="button" value="7" onclick="btnclk(7)" >7</button></td><td>
+	<button type="button" value="8" onclick="btnclk(8)" >8</button></td>
+	</tr><tr><td>
+	<button type="button" value="9" onclick="btnclk(9)" >9</button></td><td>
+	<button type="button" value="0" onclick="btnclk(0)" >0</button></td><td>
+	<button type="button" value="+" onclick="btnclk('+')" >+</button></td><td>
+	<button type="button" value="=" onclick="eql()" >=</button></td></tr>
+<tr><td>
+		
+	<button type="button" value="-" onclick="btnclk('-')" >-</button></td><td>
+	<button type="button" value="*" onclick="btnclk('*')" >*</button></td><td>
+	<button type="button" value="/" onclick="btnclk('/')" >/</button></td><td>
+	<button type="button" value="%" onclick="btnclk('%')" >%</button></td>
+   
+</tr><tr><td>
+	<button type="button"  onclick="sqr()" >sqr</button></td><td>
+	<button type="button"  onclick="squareroot()" >sqrt</button></td><td>
+	<button type="button"  onclick="back()" >backSp</button></td>
+<td>
+	<button type="button" value="clear" onclick="res.value='';">clear</button></td></tr>
+</center>
+</table>
+</body>
+</html>

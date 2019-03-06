@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script type="text/javascript">
+		i=1;
+		function next()
+		{ 
+			if(i<39)
+			i=i+1;	
+		    else
+		    	i=1;
+			img.src="img/images%20%28"+i+"%29.jpg";
+		}
+		function pre()
+		{
+			if(i>1)
+			i=i-1;
+			else
+			i=39;	
+			img.src="img/images%20%28"+i+"%29.jpg";
+		}
+		
+	</script>
+</head>
+<body>
+
+
+
+<center>	<img src="img/images%20%281%29.jpg" name="img" id="img" height="500" width="500" ><br>
+<input type="button" value="pre" onclick="pre()" align="right">
+<input type="button" value="next" onclick="next()" align="left">
+</center>
+</body>
+</html>
