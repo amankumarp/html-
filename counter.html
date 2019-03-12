@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>charcter counter</title>
+</head>
+<script type="text/javascript">
+	function counter() {
+		var str=t1.value;
+		var i=str.length;
+		t.value=i;
+		if(i>=20)
+			t1.disabled=true;
+		}
+	
+</script>
+<body>
+<textarea rows="1" cols="4" name="t1" id="t1" onkeyup="counter()"></textarea>
+<br>
+<input type="text" name="t" id="t" disabled/>
+</body>
+</html>

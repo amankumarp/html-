@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>quiz</title>
+	<script>
+		arr=['+','-','*','/','%'];
+		scor=0
+		tm=15
+		function rand()
+		{
+		 scr.innerText="Your Score is :"+String(scor);
+          t1.value=Math.round(Math.random()*100);
+          op=Math.round(Math.random()*10);
+          if(op<5)
+          	t2.value=arr[op];
+          else
+          	rand();
+          t3.value=Math.round(Math.random()*100);
+		}
+		function result()
+		{
+			st=t1.value+t2.value+t3.value;
+			re=eval(st);
+			if(res.value==re)
+			{
+				msg.innerText="correct";
+				scor=scor+1;
+			}
+			else
+			
+				msg.innerText="Incorrect";
+			tm=15;
+			rand();
+		}
+		function timer()
+		{
+			tim.innerText=tm+" Seconds";
+			tm=tm-1;
+			if(tm<0)
+			{
+			tm=15;
+			rand();
+		}
+		}
+		setInterval("timer()",1000)
+	</script>
+</head>
+<body onload="rand()">
+<h3>
+	<h3 name="scr" id="scr"></h3>
+	<h3 name="tim" id="tim"></h3>
+First Num:<input type="text" name="t1" id="t1" disabled /></br>
+Operator:<input type="text" name="t2" id="t2" disabled /></br>
+Second Num:<input type="text" name="t3" id="t3" disabled /></br>
+Your Result:<input type="text" name="res" id="res"/><br>
+<input type="button" value="OK" onclick="result()"><h3 id="msg" name="msg"></h3>
+</h3>
+</body>
+</html>
