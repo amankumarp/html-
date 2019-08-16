@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#mydiv{
+			height: 50px;
+			width:50px;
+			background: linear-gradient(to right,red,blue);
+			border-radius: 50%;
+			position: relative;
+			left:1px;
+			
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+	<title>Moving boll</title>
+	<script type="text/javascript">
+		d=10;
+	function mov(){
+			l=document.getElementById("mydiv");
+			m=l.style.left;
+			arr=m.split("px");
+			if(arr[0]<1215)
+			{
+			d+=10;
+			arr[0]++;
+			l.style.transform="rotate("+d+"deg)";	
+			}
+			
+			l.style.left=arr[0]+"px";
+
+
+
+		}
+	window.setInterval("mov()",10)
+	</script>
+</head>
+<body>
+<div id="mydiv">
+</div>
+</body>
+</html>

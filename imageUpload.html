@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Upload with File Reader</title>
+</head>
+<script>
+function upload(ev)
+{
+file=ev.target.files;
+var n= new FileReader;
+n.readAsDataURL(file[0]);
+document.body.style.background="url("+n.result+")";
+}						
+</script>
+<body>
+<input type="File" id="t" onchange="upload(event)" />
+</body>
+</html>

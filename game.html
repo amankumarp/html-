@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery</title>
+	<style>
+	#main{
+		height: 600px;
+		width:1000px;
+		background:#cccccc;
+		position: relative;
+		margin:5px;
+		border:groove;
+		padding: 5px;
+		border-radius: 10px;
+		border-color:transparent;
+	}
+	.boll{
+		height:40px;
+		width:40px;	
+		border-radius: 50%;
+		text-align: center;
+		position: absolute;
+		background-color:red;
+	}
+	#scor_board{
+		height: 605px;
+		width:234px;
+		background-color: #c5c5c5;;
+		margin-left:1009px;
+		border-radius: 10px; 
+		padding: 5px;
+	}
+    </style>
+	<script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+	<script type="text/javascript">
+		scr=0;
+	function rand() {
+		color_arr=["yellow","green","blue","pink","#990023","orange","cyan"]
+		n=Math.round(Math.random()*15);
+		for(i=0;i<=n;i++)
+		{
+		val=Math.round(Math.random()*9);
+		x=Math.round(Math.random()*950)
+		y=Math.round(Math.random()*550)
+		$('#main').append("<div class='boll' style='left:"+x+"px"+";top:"+y+"px"+";background-color:"+color_arr[i]+"' onclick='clk(this)'><h3>"+val+"</h3></div>");
+		}
+		$("#scor_board").html("<h1>Score:"+scr+"</h1>");
+			}
+	function clk(t)
+	{
+		$(t).remove();
+		n--;
+		if(n==-1)
+		rand();
+	}
+	function mov()
+	{
+		arr=$('.boll');
+		for(i=0;i<arr.length;i++)
+		{	
+		v=String(arr[i].style.top).split("px");
+		if(v[0]<570)
+		v[0]=Number(v[0])+3;
+		arr[i].style.top=v[0]+"px";
+		if(v[0]>=570)
+		{
+			$(arr[i]).remove();
+		}
+		
+		}
+		if(arr.length==0)
+		{
+			rand();
+		}
+	}
+	function down(ev)
+	{
+		key=String.fromCharCode(ev.keyCode)
+		arr=$('.boll');
+		
+		for(j=0;j<arr.length;j++)
+		{	
+		txt=$(arr[j]).text();
+		if(key==txt)
+	 	{
+	 		scr+=Number(key);
+	 		$("#scor_board").html("<h1>Score:"+scr+"</h1>");	
+	 	$(arr[j]).remove();
+
+ 	}
+	}
+}
+	window.setInterval("mov()",10)
+	</script>
+	</head>
+<body onload="rand()" onkeydown="down(event)">
+<div id="main">
+	<div id="scor_board">
+
+</div>
+</div>
+
+</body>
+
+</html>

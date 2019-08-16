@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game</title>
+	<style>
+	#main{
+		height: 600px;
+		width:800px;
+		background:#c7ecc7;
+		border-radius: 30px;
+		border:groove;
+		border-width: thick;
+		border-color:#000000; 
+		position: absolute;
+		top:6%;
+		left:18%;
+	}
+	.wall{
+		height: 300px;
+		width:25px;
+		border-radius: 20px;
+		background-color: blue;
+		position: absolute;
+	}
+	.word{
+		height: 25px;
+		width:250px;
+		border-radius: 20px;
+		background: red;
+		position:absolute;
+		text-align: center;
+		font-size: 150%;
+		border:dotted;
+		border-color:red;
+		font-weight:bold;
+		left:243px;
+		top:0px;
+
+	}
+	#game_over{
+		height:150px;
+		width:303px;
+		border:groove;
+		border-color:#ff00ff;
+		border-radius:10px; 
+		font-size: 300%;
+		background-color: blue;
+		position: absolute;
+		left:215px;
+		top:295px;
+	}
+    </style>
+	<script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+	<script type="text/javascript">
+		tp=0;
+		str=""
+		scr=0;
+		g=460;
+		i=0;
+		var x;
+		word=["hello","here","there","where","something","go","write","this ","like","condition ","sun"];
+		function rand()
+		{
+		$("#main").append("<div class='word'></div>")
+		w=document.getElementsByClassName('word')
+		w[i].innerHTML=word[i];
+		i++;
+		g=g-25;	
+		}
+		function mov()
+		{
+			div=document.getElementsByClassName("word");
+			if(tp<=g)
+			{
+			tp=tp+1;
+			div[i-1].style.top=tp+"px";
+		}
+			else
+			{	
+
+				div[i-1].style.background="#c7ecc7";
+				
+				if(g>=186)
+				rand();
+				// else
+				// {
+				// 	$("#main").append("<div id='game_over'>Game Over<br><button onclick='restart()'>restart</button><button>close</button></div>")
+				// 	window.clearInterval(x);
+				// }
+			}
+		}	
+		function down(ev)
+		{
+		    key=String.fromCharCode(ev.keyCode).toLowerCase();
+		    str+=key;
+		    txt=div[i-1].innerHTML;
+			if(str==txt.toLowerCase())
+			rand();
+	}
+		x=window.setInterval(mov,10);
+	</script>
+	</head>
+<body onload="rand()" onkeydown="down(event)">
+<div id="main">
+	<button style="background: red;height:25px;width:40px;color:white;font-size: 100%;border-radius:5px;position: absolute;left:750px; top:16px;text-align: center;border-color: red;  " onclick="document.close()"> X
+	</button>
+	<div class="wall" style="left:217px; top:190px;">
+	</div>
+	<div class="wall" style="left:499px; top:190px;">
+	</div>
+	<div class="wall" style="left:355px; top:328px;transform: rotate(90deg);">
+	</div>
+	
+<div style="height:100px;width:200px;background: #c7ecc7;;position:absolute;top:420px;left:10px; font-size: 300%">Score:
+	</div>
+
+</div>
+</body>
+</html>

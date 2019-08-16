@@ -21,7 +21,7 @@
 		{
 			st=t1.value+t2.value+t3.value;
 			re=eval(st);
-			if(eval(res.value)==re)
+			if(res.value==re)
 			{
 				msg.innerText="correct";
 				scor=scor+1;
@@ -53,7 +53,7 @@ First Num:<input type="text" name="t1" id="t1" disabled /></br>
 Operator:<input type="text" name="t2" id="t2" disabled /></br>
 Second Num:<input type="text" name="t3" id="t3" disabled /></br>
 Your Result:<input type="text" name="res" id="res"/><br>
-<input type="button" value="OK" name="but" id="but" onclick="result()"><h3 id="msg" name="msg"></h3>
+<input type="button" value="OK" onclick="result()"><h3 id="msg" name="msg"></h3>
 </h3>
 </body>
 </html>

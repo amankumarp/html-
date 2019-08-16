@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cloude game</title>
+</head>
+<style type="text/css">
+	#main{
+		height: 600px;
+		width:800px;
+		background:lightblue;
+		border-radius: 30px;
+		border:groove;
+		border-width: thick;
+		border-color:#000000; 
+		position: absolute;
+		top:6%;
+		left:18%;
+	}
+	#gun{
+		height: 50px;
+		width:20px;
+		background: red;
+		position: absolute;
+		left: 365px;
+		top:560px;
+	}
+	#bullet{
+		height :20px;
+		width:20px;
+		border-radius: 50%;
+		background-color: black;
+		position: absolute;
+		left: 365px;
+		top:550px;
+	}
+	/*.wall{
+		height: 300px;
+		width:25px;
+		border-radius: 20px;
+		background-color: blue;
+		position: absolute;
+	
+	}
+*/
+ #boll{
+ 	height:30px;
+ 	width:30px;
+ 	border-radius: 50%;
+ 	background: red;
+ 	position: absolute;
+ }
+</style>
+<script src="jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript">
+	var	x,y;
+	scr=0;
+	bullet_top=550;
+	gun_left=365;
+	function bulletActive()
+	{
+		bullet_top-=10;
+		bullet=document.getElementById("bullet");
+		bullet.style.top=bullet_top+"px";
+		bullet_left_px=bullet.style.left;
+		bullet_left=bullet_left_px.split("px");
+		if(bullet_top==0)
+		{
+		//clearInterval(x);
+		bullet_top=550;
+		bullet.style.top=bullet_top+"px";	
+		}
+		if(Math.abs(bullet_top-boll_top)<=20 && Math.abs(Number(bullet_left[0])-boll_left)<=30)
+		{
+			$("#boll").remove();
+			scr+=10;
+			randboll();
+		}
+
+	}
+	function gunactive(ev) {
+	if(ev.keyCode==38)
+	{
+		//clearInterval(x);
+		bulletActive();
+		x=setInterval(bulletActive,15);
+	}
+	else if(ev.keyCode==37)
+	{
+		gun=document.getElementById("gun");
+		gun_left-=10;
+		gun.style.left=gun_left+"px";
+		bullet.style.left=gun_left+"px";
+	}
+	else if(ev.keyCode==39)
+	{
+		gun=document.getElementById("gun");
+		gun_left+=10;
+		gun.style.left=gun_left+"px";
+		bullet.style.left=gun_left+"px";
+	}
+	}
+	function randboll()
+	{
+		// Number_of_boll=(Math.round(Math.random()*9));
+		// for( i=0;i<=Number_of_boll;i++)
+		// {
+		boll_top=0;
+		boll_left=Math.round(Math.random()*500);
+		$("#main").append("<div id='boll' style='left:"+boll_left+"px;top:"+boll_top+"px;'></div>");
+	// }
+}
+function boll_move()
+{	
+	boll_top+=10;
+	boll=document.getElementById('boll');
+	boll.style.top=boll_top+"px";
+	if(boll_top==600)
+	{
+
+	$(boll).remove();
+	randboll();
+}
+}
+y=setInterval(boll_move,100);
+</script>
+<body onkeydown="gunactive(event)" onload="randboll()">
+
+<div id="main">
+	<!-- 
+	<div class="wall" style="left:217px; top:190px;">
+	</div>
+	<div class="wall" style="left:499px; top:190px;">
+	</div>
+	<div class="wall" style="left:355px; top:328px;transform: rotate(90deg);">
+	</div>
+	 -->
+	 <div id="bullet">
+	 </div>
+	 <div id="gun">
+</div>
+</div>
+</body>
+</html>

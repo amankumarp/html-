@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#mydiv{
+			height: 300px;
+			width:300px;
+			background:gray;
+			position: absolute;
+			left:1px;
+			
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.3.1.slim.min.js"></script>
+	<script>
+		function show()
+		{
+			$("body").append('<div id="mydiv"><button onclick="clos()">close</button></div>');
+		}
+		function clos()
+		{
+			$("#mydiv").remove();
+		}
+	</script>
+
+</head>
+<body>
+	<button onclick="show()">show popup</button>
+</body>
+</html>

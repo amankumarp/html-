@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dragable Image </title>
+	<script type="text/javascript">
+		var im,im2 ,img1,img2;
+		function allowdrop(ev) {
+			ev.preventDefault();
+		}
+		function drag(ev)
+		{
+			im=document.getElementById(ev.target.id);
+			img1=document.getElementById(ev.target.id).src;
+		}
+		function drop(ev)
+		{
+			im2=document.getElementById(ev.target.id);
+			img2=document.getElementById(ev.target.id).src;
+			im.src=img2;
+			im2.src=img1;
+		}
+	</script>
+</head>
+<body>
+<img src="a.jpg" draggable="true" ondragstart="drag(event)" ondragover="allowdrop(event)" ondrop="drop(event)" height="250" width="250" id="a">
+<img src="b.jpg" draggable="true" ondragstart="drag(event)" ondragover="allowdrop(event)" ondrop="drop(event)" height="250" width="250" id="b"><br>
+<img src="c.jpg" draggable="true" ondragstart="drag(event)" ondragover="allowdrop(event)" ondrop="drop(event)" height="250" width="250" id="c">
+<img src="d.jpg" draggable="true" ondragstart="drag(event)" ondragover="allowdrop(event)" ondrop="drop(event)" height="250" width="250" id="d">
+</body>
+</html>
