@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+#mydiv{
+background:#0000FF;
+height:10px;
+width:10px;
+border:solid;
+border-radius:50%;
+}
+</style>
+<script>
+function magic(e)
+{
+t=document.getElementById('mydiv');
+t.style.marginLeft=e.clientX;
+t.style.marginTop=e.clientY;
+}
+function allowDrop(ev){
+	ev.preventDefault();
+
+}
+function drag(ev)
+{
+	ev.dataTransfer.setData("text",ev.target.id);
+}
+function drop(ev){
+ev.preventDefault();
+var data=ev.dataTransfer.getData("text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div id="box" ondrop="drop(event)" ondragover="allowDrop(event)" style="border: 1px solid black;width :1000px;height: 500px;"></div>
+<img src="a.jpg" id="image" draggable="true" ondragstart="drag(event)" width="150" heigth="50" alt="image">
+</body>
+</html>

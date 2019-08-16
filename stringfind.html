@@ -1,0 +1,35 @@
+<html>
+<head>
+<script>
+function find1()
+{
+str1="";
+str=h3.innerText;
+word=str.split(" ");
+len=word.length;
+f=fnd.value;
+for(i=0;i<len;i++)
+{
+for(j=0;j<=f.length;j++)
+{
+if(f[j]==word[i][j])
+str1+=" "+"<mark>"+f[j]+"</mark>";
+else
+str1+=word[i][j];
+}
+for(k=f.length-1;k<=word[i].lenght;k++)
+str1+=word[i][k];
+str1+=" ";
+}
+h3.innerHTML=str1;
+}
+</script>
+
+</head>
+<body>
+<h3 id="h3" name="h3">Getting Started contains a list of tasks you might want to perform when you set up your computer. Tasks in Getting Started include
+</h3>
+<input type="text" id="fnd" name="fnd"  />
+<input type="button" value="find" onClick="find1()"/>
+</body>
+</html>

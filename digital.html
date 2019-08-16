@@ -1,0 +1,120 @@
+<html><head>
+
+<style>
+.line{
+height:100px;
+width:10px;
+position:absolute;
+
+border-radius:5px;
+}
+</style>
+
+<script>
+var x;
+z=0;
+function color(t)
+{
+l=document.getElementsByClassName('line')
+for(j=0;j<l.length;j++)
+{
+l[j].style.background="";
+}
+for(i=0;i<l.length;i++)
+{
+if((i==2||i==3)&&t==1)
+{
+l[i].style.background="blue";
+}
+else if((i==4||i==3||i==5||i==0||i==6)&&t==2)
+{
+l[i].style.background="blue";
+}
+else if((i==4||i==3||i==5||i==2||i==6)&&t==3)
+{
+l[i].style.background="blue";
+}
+else if((i==1||i==3||i==5||i==2)&&t==4)
+{
+l[i].style.background="blue";
+}
+else if((i==1||i==4||i==5||i==2||i==6)&&t==5)
+{
+l[i].style.background="blue";
+}
+else if((i==4||i==1||i==5||i==2||i==0||i==6)&&t==6)
+{
+l[i].style.background="blue";
+}
+else if((i==4||i==3||i==2)&&t==7)
+{
+l[i].style.background="blue";
+}
+else if((i==1||i==3||i==5||i==2||i==0||i==6||i==4)&&t==8)
+{
+l[i].style.background="blue";
+}
+else if((i==1||i==3||i==5||i==2||i==6||i==4)&&t==9)
+{
+l[i].style.background="blue";
+}
+else if((i==1||i==3||i==2||i==6||i==4||i==0)&&t==0)
+{
+l[i].style.background="blue";
+}
+
+
+}
+
+}
+function c()
+{
+color(z);
+if(z<=9)
+z++;
+else
+z=0;
+}
+x=window.setInterval("c()",1000);
+</script>
+</head>
+<body >
+
+
+<div class="line" style="left:200px;
+top:200px;
+">
+</div>
+
+
+<div class="line" style="left:200px;
+top:85px;
+">
+</div>
+<div class="line" style="left:315px;
+top:200px;
+">
+</div>
+<div class="line" style="left:315px;
+top:85px;
+">
+</div>
+
+
+
+<div class="line" style="left:258px;
+top:30px;
+transform:rotate(90deg)">
+</div>
+
+<div class="line" style="left:258px;
+top:142px;
+transform:rotate(90deg)">
+</div>
+
+<div class="line" style="left:258px;
+top:253px;
+transform:rotate(90deg)">
+</div>
+
+</body></html>
