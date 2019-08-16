@@ -1,0 +1,27 @@
+<html>
+<head>
+<link rel="stylesheet" href="main.css">
+<link rel="manifest" href="manifest.json">
+<script src="jquery.min.js">
+</script>
+<script src="word.js">
+</script>
+<script src="main.js">
+</script>
+<script>
+    if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('serviceWorker.js')
+  .then(function(registration) {
+    console.log('Registration successful, scope is:', registration.scope);
+  })
+  .catch(function(error) {
+    console.log('Service worker registration failed, error:', error);
+  });
+}
+</script>
+</head>
+<body onLoad="popup()" onkeyDown="matchWord(event)" onChange="set()">
+<div id="main">
+</div>
+</body>
+</html>

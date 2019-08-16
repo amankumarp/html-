@@ -1,0 +1,20 @@
+{
+    "short_name":"typing game",
+    "name":"typing game",
+    "icons":[
+    {
+        "src":"typ-144.png",
+        "type":"image/png",
+        "size":"144x144"
+    },
+    {
+        "src":"typ-512.png",
+        "type":"image/png",
+        "size":"512x512"
+    }],
+    "start_url":"typing_master.html",
+    "display":"standlone",
+    "scope":"/",
+    "background_color":"#f00",
+    "theme_color":"#f00"
+}
