@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Marquee</title>
+	<script type="text/javascript">
+	function iny()
+	{
+		m.bgColor="red";
+		m.style.color="white";
+		m.scrollAmount=0;
+	}
+	function outy()
+	{
+		m.bgColor="white";
+		m.style.color="black";
+		m.scrollAmount=10;
+	}
+	</script>
+</head>
+
+<body>
+<marquee  name="m" id="m" onMouseOver="iny()" onMouseOut="outy()"><h1>Welcome</h1></marquee>
+
+</body>
+</html>

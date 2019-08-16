@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	#cdiv{
+	background: #ff0000;
+	margin:10px;
+	margin-right:1030px;
+	margin-left:0px; 
+	margin-top:300px;
+	margin-bottom: 44px;
+	height:50px;
+	width:50px;
+	border-radius:50%;
+}
+/*	#rdiv{
+	background: #0000ff;
+	margin:0px;
+	margin-right:1000px;
+	margin-top:30px;
+	margin-bottom: 44px;
+	height:50px;
+	width:50px;
+}*/
+#root{
+background: #e7e7e7;
+background-position: 23% 34%;
+margin-bottom: 10%;
+margin-top: 10%;
+height: 500px;
+width: 700px;
+}
+/*#sdiv{
+background: #ffcccc;
+height: 500px;
+width: 700px;
+}*/
+/*#ldiv{
+
+}*/
+	</style>
+	<script type="text/javascript">
+		
+
+
+		function move()
+		{
+			t=document.getElementById('cdiv');
+			m=t.style.marginLeft.split("px")
+			i=Number(m[0])
+			if(i<=1220)
+			{
+			i+=1;
+			t.style.marginLeft=i+"px";
+		}
+}
+		setInterval("move()",10);
+	</script>
+
+	<title>html</title>
+</head>
+<body onload="move()">
+<div id="root" >
+	
+		<div id="cdiv" ></div>
+		<div id="rdiv"></div>
+
+</div>
+</body>
+</html>

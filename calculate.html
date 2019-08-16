@@ -32,45 +32,55 @@
         	}
         	res.value=str1;
         }
+        function mouse(x)
+        {
+       		x.bgColor="blue";
+        	x.style.color="red";
+        }
+        function out(x)
+        {
+        	x.bgColor="";
+        	x.style.color="black";
+        } 
 	</script>
 </head>
 <body><center>
 	<h2>Calculator</h2>
 	<table bgcolor="#B4B6B3">
 		
-	<input  type="text" name="res" id="res" width="50px"></br>
+	<input  type="text" name="res" id="res" width="50px" onmouseover="mouse(this)" onmouseout="out(this)" ></br>
 	<td>
-	<button type="button" value="1" onclick="btnclk(1)" >1</button>
+	<button type="button" value="1" onclick="btnclk(1)" onmouseover="mouse(this)" onmouseout="out(this)" >1</button>
 </td>
 <td>
-	<button type="button" value="2" onclick="btnclk(2)" >2</button></td>
+	<button type="button" value="2" onclick="btnclk(2)" onmouseover="mouse(this)" onmouseout="out(this)" >2</button></td>
 	<td>
-	<button type="button" value="3" onclick="btnclk(3)" >3</button></td>
+	<button type="button" value="3" onclick="btnclk(3)" onmouseover="mouse(this)" onmouseout="out(this)" >3</button></td>
 	<td>
-	<button type="button" value="4" onclick="btnclk(4)" >4</button>
+	<button type="button" value="4" onclick="btnclk(4)" onmouseover="mouse(this)" onmouseout="out(this)" >4</button>
 	</td></tr><br><tr><td>
-	<button type="button" value="5" onclick="btnclk(5)" >5</button></td><td>
-	<button type="button" value="6" onclick="btnclk(6)" >6</button></td><td>
-	<button type="button" value="7" onclick="btnclk(7)" >7</button></td><td>
-	<button type="button" value="8" onclick="btnclk(8)" >8</button></td>
+	<button type="button" value="5" onclick="btnclk(5)" onmouseover="mouse(this)" onmouseout="out(this)" >5</button></td><td>
+	<button type="button" value="6" onclick="btnclk(6)" onmouseover="mouse(this)" onmouseout="out(this)">6</button></td><td>
+	<button type="button" value="7" onclick="btnclk(7)" onmouseover="mouse(this)" onmouseout="out(this)">7</button></td><td>
+	<button type="button" value="8" onclick="btnclk(8)" onmouseover="mouse(this)" onmouseout="out(this)">8</button></td>
 	</tr><tr><td>
-	<button type="button" value="9" onclick="btnclk(9)" >9</button></td><td>
-	<button type="button" value="0" onclick="btnclk(0)" >0</button></td><td>
-	<button type="button" value="+" onclick="btnclk('+')" >+</button></td><td>
-	<button type="button" value="=" onclick="eql()" >=</button></td></tr>
+	<button type="button" value="9" onclick="btnclk(9)" onmouseover="mouse(this)" onmouseout="out(this)">9</button></td><td>
+	<button type="button" value="0" onclick="btnclk(0)" onmouseover="mouse(this)" onmouseout="out(this)">0</button></td><td>
+	<button type="button" value="+" onclick="btnclk('+')" onmouseover="mouse(this)" onmouseout="out(this)">+</button></td><td>
+	<button type="button" value="=" onclick="eql()" onmouseover="mouse(this)" onmouseout="out(this)" >=</button></td></tr>
 <tr><td>
 		
-	<button type="button" value="-" onclick="btnclk('-')" >-</button></td><td>
-	<button type="button" value="*" onclick="btnclk('*')" >*</button></td><td>
-	<button type="button" value="/" onclick="btnclk('/')" >/</button></td><td>
-	<button type="button" value="%" onclick="btnclk('%')" >%</button></td>
+	<button type="button" value="-" onclick="btnclk('-')" onmouseover="mouse(this)" onmouseout="out(this)">-</button></td><td>
+	<button type="button" value="*" onclick="btnclk('*')" onmouseover="mouse(this)" onmouseout="out(this)" >*</button></td><td>
+	<button type="button" value="/" onclick="btnclk('/')" onmouseover="mouse(this)" onmouseout="out(this)">/</button></td><td>
+	<button type="button" value="%" onclick="btnclk('%')" onmouseover="mouse(this)" onmouseout="out(this)">%</button></td>
    
 </tr><tr><td>
-	<button type="button"  onclick="sqr()" >sqr</button></td><td>
-	<button type="button"  onclick="squareroot()" >sqrt</button></td><td>
-	<button type="button"  onclick="back()" >backSp</button></td>
+	<button type="button"  onclick="sqr()" onmouseover="mouse(this)" onmouseout="out(this)">sqr</button></td><td>
+	<button type="button"  onclick="squareroot()" onmouseover="mouse(this)" onmouseout="out(this)">sqrt</button></td><td>
+	<button type="button"  onclick="back()" onmouseover="mouse(this)" onmouseout="out(this)">backSp</button></td>
 <td>
-	<button type="button" value="clear" onclick="res.value='';">clear</button></td></tr>
+	<button type="button" value="clear" onclick="res.value='';" onmouseover="mouse(this)" onmouseout="out(this)">clear</button></td></tr>
 </center>
 </table>
 </body>

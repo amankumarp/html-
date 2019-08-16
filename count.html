@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>word counter</title>
+	<script>
+		function text()
+		{
+			dv.innerText=t.value;
+		}
+		function st(){
+			str1=""
+			str=dv.innerText;
+			arr=str.split(" ");
+			for(i=0;i<arr.length;i++)
+			{
+				if(arr[i]==s.value)
+				str1+=" "+"<mark>"+arr[i]+"</mark>";
+				else
+					str1+=" "+arr[i];
+			}
+			dv.innerHTML=str1;
+		}
+		
+
+	</script>
+</head>
+<body>
+	<div id="dv" name="dv"></div>
+<textarea rows="10" cols="50" name="t" id="t" onkeyup="text()" onpaste="text()"></textarea>
+<h3>Find:</h3><input type="text" name="s" id="s"/>
+<input type="button" value="Find" onclick="st()"/>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>binary Calculater</title>
+	<script type="text/javascript">
+		var c="";
+		function count()
+		{
+			str=t1.value;
+			arr=str.split(".")
+			for(i=0;i<arr.length;i++)
+			{	s=bin(Number(arr[i]));
+			    c=c+s;
+		}
+			t.value=c;
+
+		}
+		function bin(str)
+		{
+			r="";
+			
+			while(str>0)
+			{
+
+				r=r+String(str%2);
+				str=Math.floor(str/2);
+			}
+			i=r.length;
+			s="";
+			for(j=i-1;j>=0;j--)
+			{
+	
+				s=s+r[j];
+				
+			}
+			while(s.length<8)
+				s='0'+s
+			return s;
+
+			
+		}
+		function octal()
+		{
+			r="";
+			str=Number(t1.value);
+			while(str>0)
+			{
+
+				r=r+String(str%8);
+				str=Math.floor(str/8);
+			}
+			i=r.length;
+			s="";
+			for(j=i-1;j>=0;j--)
+			{
+	
+				s=s+r[j];
+				
+			}
+			t.value=s;
+		}
+		function decimal()
+		{
+
+			i=0;
+			sum=0;
+			str=Number(t.value);
+			while(str>0)
+			{
+				r=str%10;
+				str=Math.floor(str/10);
+				sum=sum+(r*Math.pow(2,i));
+				i++;
+			}
+
+			t1.value=sum;
+		}
+		function octalTodecimal()
+		{
+
+			i=0;
+			sum=0;
+			str=Number(t.value);
+			while(str>0)
+			{
+				r=str%10;
+				str=Math.floor(str/10);
+				sum=sum+(r*Math.pow(8,i));
+				i++;
+			}
+
+			t1.value=sum;
+		}
+	</script>
+</head>
+<body>
+	<h3>Enter Decimal Number:</h3>
+<input type="text" name="t1" id="t1"/><br>
+<h3>Binary:</h3>
+<input type="text" name="t" id="t"/><br>
+<input type="button" onclick="count()" value="binary">
+<input type="button" onclick="decimal()" value="Decimal">
+</body>
+</html>

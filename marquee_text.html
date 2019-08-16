@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>marquee text</title>
+	<script type="text/javascript">
+		function s() {
+			m.scrollAmount=0;
+			h.style.color="white";
+			h.style.backgroundColor="red";
+		}
+		function t()
+		{
+			m.scrollAmount=10;
+			h.style.color="black";
+			h.style.backgroundColor="white";
+		
+		}
+	</script>
+</head>
+<body>
+<marquee name="m" id="m" scrollamount="10"><h1 name="h" id="h" onmouseover="s()" onmouseout="t()">aman</h1>
+</marquee>
+</body>
+</html>

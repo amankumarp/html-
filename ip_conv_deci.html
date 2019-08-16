@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ip address converter </title>
+	<script type="text/javascript">
+		function bin(str){
+			r="";
+			num=Number(str);
+			while(num>0)
+			{
+
+				r=r+String(num%2);
+				str=Math.floor(num/2);
+			}
+			i=r.length;
+			s="";
+			for(j=i-1;j>=0;j--)
+			{
+	
+				s=s+r[j];
+				
+			}
+			return s;
+		}		
+		function changer() {
+			comp="";
+			str=raw.value;
+			arr=str.split(".");
+			arlen=arr.length;
+			for(i=0;i<=arlen-1;i++)
+			{
+				binary=bin(arr[i]);
+			while(binary.length<8)
+				binary='0'+binary;
+			comp=comp+binary;
+			}
+			res.value=comp;
+		}
+
+	</script>
+</head>
+<body>
+<center>
+	Ip Address convert to Decimal 
+</center>
+<h3>
+	Enter Ip Address :<input type="text" name="raw" id="raw"/>
+	http://<input type="text" name="res" id="res"></br>
+	<input type="button" value="go" onclick="changer()"></h3>
+	
+</body>
+</html>
