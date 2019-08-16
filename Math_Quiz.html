@@ -1,0 +1,207 @@
+<html>
+<head>
+<title></title>
+<style>
+#mydiv
+{
+height:500px;
+width :600px;
+border-bottom:2px solid;
+border-top:2px solid;
+margin:100px;
+}
+#scr,#scr1{
+color:white;
+background:linear-gradient(90deg,rgba(0,255,0,1)0%,rgba(0,200,0,0.7)25%,rgba(0,180,0,0.4)75%,rgba(0,100,0,0.3)100%);
+height:30px;
+width:inherit;
+}
+#tmr{
+background:linear-gradient(90deg,#f00,#00f);
+height:10px;
+width:inherit;
+}
+#cal_container{
+height:400px;
+width:300px;
+border:2px groove black;
+position:absolute;
+left:750px;
+top:200px;
+}
+#but{
+text-align:center;
+font-size:18px;
+height:20px;
+width:80px;
+
+background:blue;
+border-radius:3px;
+color:#FFFFFF;
+font-weight:bold;
+border:2px groove red;
+position:absolute;
+
+}
+#status
+{
+font-size:36px;
+position:absolute;
+color:#00CC33;
+top:330px;
+}
+</style>
+<script src="jquery.min.js"></script>
+<script src="quiz_Questions.js"></script>
+<script>
+var calculate;
+var i;
+var arr=new Array;
+scr=0;
+tmr_wid=600;
+count=0;
+function rand()
+{
+i=Math.round(Math.random()*13);
+// if(!arr.includes(i))
+// arr.push(i);
+// else
+// rand();
+$('#Q').fadeOut(100);
+$('input').fadeOut(100);
+$('label').fadeOut(100);
+count++;
+opt=document.getElementsByName("ans");
+for(t=0;t<4;t++)
+{
+opt[t].checked=false;
+}
+dv=document.getElementById("Q");
+dv.innerHTML="<b>Question.</b>"+(count)+":"+qarr[i];
+$('#Q').fadeIn(1000);
+$('input').fadeIn(1000);
+$('label').fadeIn(1000);
+for(let j=0;j<4;j++)
+{
+rdo=document.getElementById(j);
+rdo.innerText=optArr[i][j];
+}
+document.getElementById("scr").innerText="Score:"+scr;
+}
+function result()
+{
+opt=document.getElementsByName("ans");
+for(t=0;t<4;t++)
+{
+if(opt[t].checked==true)
+break;
+}
+if(ansArr[i]==optArr[i][t])
+{
+scr+=10;
+document.getElementById('status').style.color='#00CC33';
+document.getElementById("status").innerText="Correct";
+document.getElementById("scr").innerText="Score:"+scr;
+rand();
+}
+else
+{
+document.getElementById('status').style.color='red';
+document.getElementById("status").innerText="InCorrect";
+rand()
+}
+tmr_wid=600;
+$('#status').fadeIn(100);
+$('#status').fadeOut(1000);
+}
+function tmr()
+{
+tmr_wid-=2;
+tm=document.getElementById("tmr");
+tm.style.width=tmr_wid+"px";
+if(tmr_wid==0)
+{
+$('#status').fadeIn(100);
+document.getElementById("status").innerText="Time Out";
+$('#status').fadeOut(1000);
+tmr_wid=600;
+rand();
+}
+}
+
+function Back()
+{
+str1="";
+str=res.value;
+len=str.length;
+len--;
+for(l=0;l<len;l++)
+str1+=str[l];
+res.value=str1;
+}
+
+setInterval(tmr,100);
+</script>
+</head>
+<body onLoad="rand()">
+<div id="title" style="position:absolute;left:275px;font-size:40px;top:10px;">Math Test</div>
+<div id="mydiv">
+<div id="scr" style="font-size:30px;"></div>
+<div id="tmr"></div>
+<pre>
+<div id="container" style="position:absolute;left:300px; top:200px">
+<div id="status"></div>
+<div id="Q" style="font-size:24px;position:absolute;left:-140px;top:-10px;"></div>
+<div style="position:absolute;left:-30px;top:50px;font-size:18px;font-weight:bold;">
+<input type="radio" value="0" id="ans" name="ans"/><label id="0"></label><br/><br/>
+<input type="radio" value="1" id="ans" name="ans"><label id="1"></label><br/><br/>
+<input type="radio" value="2" id="ans" name="ans"><label id="2"></label><br/><br/>
+<input type="radio" value="3" id="ans" name="ans"><label id="3"></label><br/><br/>
+</div>
+</div>
+</pre>
+<div id="scr1" style="position:absolute;top:575px;">
+<div onClick="result()" style="font-size:20px;heigth:50px;width:70px;background:blue;position:absolute;top:3px;left:7px;border:2px groove #00CC00;" >Submit</div>
+</div>
+</div>
+<div id="cal_container">
+<table height="400" width="300">
+<tr>
+<td colspan="4">
+<textarea type="text" id="res" style="height:30px ;width:280px;resize:none;font-size:20px;text-align:right;"></textarea>
+</td>
+</tr>
+<tr>
+<td><div id="but"  onclick="res.value+='0';">0</div></td>
+<td><div id="but"  onclick="res.value+='1';">1</div></td>
+<td><div id="but"  onclick="res.value+='2';">2</div></td>
+</tr>
+<tr>
+<td><div id="but"  onclick="res.value+='3';">3</div></td>
+<td><div id="but"  onclick="res.value+='4';">4</div></td>
+<td><div id="but"  onclick="res.value+='5';">5</div></td>
+</tr>
+<tr>
+<td><div id="but"  onclick="res.value+='6';">6</div></td>
+<td><div id="but"  onclick="res.value+='7';">7</div></td>
+<td><div id="but"  onclick="res.value+='8';">8</div></td>
+</tr>
+<tr>
+<td><div id="but"  onclick="res.value+='9';">9</div></td>
+<td><div id="but"  onClick="res.value+='+';">+</div></td>
+<td><div id="but"  onClick="res.value+='-';">-</div></td>
+</tr>
+<tr>
+<td><div id="but"  onClick="res.value+='*';">*</div></td>
+<td><div id="but"  onClick="res.value+='/';">/</div></td>
+<td><div id="but"  onClick="res.value=eval(res.value)">=</div></td>
+</tr>
+<tr>
+<td><div id="but"  onClick="Back()">Back</div></td>
+<td><div id="but"  onClick="res.value='';">Clear</div></td>
+</tr>
+
+</table>
+</div>
+</body>
+</html>

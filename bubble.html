@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Game</title>
+</head>
+<style type="text/css">
+#container{
+	height: 500px;
+	width:300px;
+	
+	margin-left:200px;
+}
+</style>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+	 var TmpArr=[];
+	  var DelArr=[];
+		var url,url2,id2;
+		function allowdrop(ev)
+		{
+		ev.preventDefault();
+		}
+		function drop(ev)
+		{
+		id=document.getElementById(ev.target.id);
+		if(Math.abs(TmpArr.indexOf(id2.id)-TmpArr.indexOf(id.id))==4||Math.abs(TmpArr.indexOf(id2.id)-TmpArr.indexOf(id.id))==1)
+		{
+		url1=id.style.background;
+		id2.style.background=url1;
+		id.style.background=url;
+		}
+		Match();
+		}
+		function drag(ev)
+		{
+		id2=document.getElementById(ev.target.id)
+	    url=id2.style.background;
+	  	}
+		ObjArr=["red","green","blue","cyan"]
+function rand() {
+
+	for(let i=0;i<=3;i++)
+	{
+	$('#mytable').append('<tr><td><div id=a'+i+' style="height:50px;width:50px;background:'+ObjArr[Math.round(Math.random()*3)]+'; " ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true"></div></td><td><div style="height:50px;width:50px;background:'+ObjArr[Math.round(Math.random()*3)]+' " id=b'+i+' ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true"></div></td><td><div style="height:50px;width:50px;background:'+ObjArr[Math.round(Math.random()*3)]+' " id=c'+i+' ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true"></div></td><td><div style="height:50px;width:50px;background:'+ObjArr[Math.round(Math.random()*3)]+' " id=d'+i+' ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true"></div></td></tr>');
+TmpArr.push('a'+i);
+TmpArr.push('b'+i);
+TmpArr.push('c'+i);
+TmpArr.push('d'+i);
+}
+}
+function Match()
+{
+
+	
+}
+</script>
+<body onload="rand()">
+	<div id="container">
+		<h1 align="center"> Candy Cruse Game</h1>
+		<h2  id="scr">Score:</h2> 
+	<table id ="mytable" height="500" width="300" border="2">
+	</table>
+	</div>
+</body>
+</html>

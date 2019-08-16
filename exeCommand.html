@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Execommand</title>
+<script type="text/javascript">
+	
+	function v(ev)
+	{ 
+		var input=document.getElementById('inp');
+		ev.preventDefault();
+		input.select();
+		document.execCommand("cut");
+	}
+</script>
+</head>
+
+<body>
+<textarea id="inp"></textarea>
+<button onclick="v(event)">copy</button>
+</body>
+</html>

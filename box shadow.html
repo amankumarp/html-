@@ -1,0 +1,26 @@
+<html>
+<head>
+<style>
+</style>
+<script type="text/javascript">
+	function getPro() 
+	{
+	pro=document.getElementById('pro');
+	pro.value="0";
+	ch=document.getElementsByClassName('ch');
+	for(i=0;i<ch.length;i++)
+	{
+		if(ch[i].checked==true)
+			pro.value+=Number(ch[i].value);
+	}
+	}
+</script>
+</head>
+<body>
+	<progress value="0" max="100" min="0" id="pro"></progress><br>
+<input type="checkbox" value="10" class="ch" onclick="getPro()"/><label>10</label>
+<input type="checkbox" value="20" class="ch" onclick="getPro()"/><label>20</label>
+<input type="checkbox" value="40" class="ch" onclick="getPro()"/><label>40</label>
+<input type="checkbox" value="30" class="ch" onclick="getPro()"/><label>30</label>
+</body>
+</html>

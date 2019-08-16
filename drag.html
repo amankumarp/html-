@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>drag And Drop</title>
+	<script>
+		var url,url2,id2;
+		function allowdrop(ev)
+		{
+			ev.preventDefault();
+		}
+		function drop(ev)
+		{
+		id=document.getElementById(ev.target.id);
+		url1=id.style.background;
+		id2.style.background=url1;
+		id.style.background=url;
+		}
+		function drag(ev)
+		{
+		id2=document.getElementById(ev.target.id)
+	     url=id2.style.background;
+		}
+	</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+<div id="box" style="background:url('1.jpg');height:250px; width:250px;border:2px solid black;" ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true"></div></td>
+<td>
+	<div id="box2" style="background:url('2.jpg'); height:250px;width:250px; border:2px solid black;" ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true" /></div></td></tr><tr><td>
+	<div id="box3" style="background:url('5.jpg'); height:250px;width:250px; border:2px solid black;" ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true" /></div></td><td>
+	<div id="box4" style="background:url('4.jpg'); height:250px;width:250px; border:2px solid black;" ondrop="drop(event)" ondragover="allowdrop(event)" ondragstart="drag(event)" draggable="true" /></div></td></tr>
+</table>
+
+
+</body>
+</html>

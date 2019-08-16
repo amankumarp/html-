@@ -1,0 +1,89 @@
+<html>
+<head>
+<style>
+#mydiv,#mydiv1{
+width:300px;
+height:500px;
+border:2px groove blue;
+overflow:scroll;
+}
+#msg
+{
+heigth:100px;
+width:260px;
+border-radius:10px;
+background:#CCCCCC;
+}
+</style>
+<script>
+day_arr=["sun","mon","tue","wed","thr","fri","sat"];
+mnt_arr=["jan","feb","march","april","may","june","july","aug","sep","oct","nov","dec"];
+function sendMsg()
+{
+d1=document.getElementById("mydiv1");
+t1=document.getElementById("txt1");
+d=document.getElementById("mydiv");
+t=document.getElementById("txt");
+msg=t.value;
+l=(msg.length)*10;
+if(!msg)
+return;
+t.value="";
+dt=new Date;
+if(12<dt.getHours())
+h=dt.getHours()-12;
+else
+h=dt.getHours();
+m=dt.getMinutes();
+s=dt.getSeconds();
+d.innerHTML+="<div id='msg' style='background:#ccc; width:"+l+"px;'><pre>"+msg+"<br><h3 align='right'>"+h+":"+m+":"+s+"</h3></pre></div>";
+d1.innerHTML+="<div id='msg' style='background:lightblue;width:"+l+"px;margin-left:150px;'><pre>"+msg+"<br><h3 align='right'>"+h+":"+m+":"+s+"</h3></pre></div>";
+}
+function stDate()
+{
+d=document.getElementById("mydiv")
+d1=document.getElementById("mydiv1")
+dt=new Date;
+mnt=mnt_arr[dt.getMonth()];
+date=dt.getDate();
+day=day_arr[dt.getDay()];
+y=dt.getFullYear();
+d1.innerHTML+="<h3 align='center'>"+date+"-"+mnt+"-"+y+","+day;
+d.innerHTML+="<h3 align='center'>"+date+"-"+mnt+"-"+y+","+day;
+}
+function sendMsg1()
+{
+d1=document.getElementById("mydiv1");
+t1=document.getElementById("txt1");
+d=document.getElementById("mydiv");
+t=document.getElementById("txt");
+msg=t1.value;
+l=(msg.length)*10;
+if(!msg)
+return;
+t1.value="";
+dt=new Date;
+if(12<dt.getHours())
+h=dt.getHours()-12;
+else
+h=dt.getHours();
+m=dt.getMinutes();
+s=dt.getSeconds();
+d.innerHTML+="<div id='msg' style='background:lightblue;margin-left:150px;width:"+l+"px;'><pre>"+msg+"<br><h3 align='right'>"+h+":"+m+":"+s+"</h3></pre></div>";
+d1.innerHTML+="<div id='msg' style='background:#ccc;width:"+l+"px;'><pre>"+msg+"<br><h3 align='right'>"+h+":"+m+":"+s+"</h3></pre></div>";
+}
+
+</script>
+</head>
+<body onLoad="stDate()">
+<div id="mydiv"></div>
+<textarea id="txt" style="width:250px;height:50px;resize:none;position:absolute;top:512px;border:2px groove blue">
+</textarea>
+<div style="background:blue;width:50px;height:20px; color:#FFFFFF;position:absolute;left:260px;top:512px;border:2px groove;" onClick="sendMsg()">Send</div>
+<div id="mydiv1" style="position:absolute;left:700px;top:5px;"></div>
+<textarea id="txt1" style="width:250px;height:50px;resize:none;position:absolute;top:512px;left:700px;border:2px groove blue">
+</textarea>
+<div style="background:blue;width:50px;height:20px; color:#FFFFFF;position:absolute;top:512px;left:950px;border:2px groove;" onClick="sendMsg1()">Send</div>
+
+</body>
+</html>
